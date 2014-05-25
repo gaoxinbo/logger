@@ -10,7 +10,7 @@ LD_FLAGS=-g
 all:liblogger.so ${bin}
 
 
-.cpp.o:
+.cc.o:
 	${CC} -c $^ ${CXX_FLAGS} -o $@
 
 ${SHARED_OBJ}:${OBJECTS}

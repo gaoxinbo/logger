@@ -1,16 +1,14 @@
-/**
- *
- * @file logger.h
- * @author XinBo Gao
- * @date 2014-5-23
- * @version 1.0
- */
+// File: logger.h
+// Author: Xinbo Gao gaoxinbo1984@gmail.com
+// Version: 1.0
+// Date: 2014-05-25
+// Copyright 2014, Xinbo Gao.  All rights reserved.
 
-#ifndef _LOGGER_H
-#define _LOGGER_H
+#ifndef _LOGGER_H_
+#define _LOGGER_H_
 
-#include "Layout.h"
 #include "Appender.h"
+#include "Layout.h"
 
 namespace logger {
 
@@ -31,7 +29,7 @@ static const char * LevelMsg [kLEVEL_LENGTH] = {
   "DEBUG",
 };
 
-class Logger{
+class Logger {
   public:
     Logger();
     ~Logger();
@@ -44,8 +42,12 @@ class Logger{
   private:
     LEVEL level_;
     Layout layout_;
+
+  private:
+    Logger(const Logger&);
+    void operator=(const Logger&);
 };
 
-}
-#endif
+}  // namespace logger
+#endif  // _LOGGER_H_
 

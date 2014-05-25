@@ -1,11 +1,17 @@
-#ifndef _LAYOUT_H
-#define _LAYOUT_H
+// File: Layout.h
+// Author: Xinbo Gao gaoxinbo1984@gmail.com
+// Version: 1.0
+// Date: 2014-05-25
+// Copyright 2014, Xinbo Gao.  All rights reserved.
+
+#ifndef _LAYOUT_H_
+#define _LAYOUT_H_
 
 #include "Appender.h"
 
 namespace logger {
 
-class Layout{
+class Layout {
   public:
     Layout();
     ~Layout();
@@ -16,9 +22,12 @@ class Layout{
 
   private:
     Appender * appender_;
+
+  private:
+    Layout(const Layout&);
+    void operator=(const Layout&);
 };
 
-}
-
-#endif
+}  // namespace logger
+#endif  // _LAYOUT_H_
 

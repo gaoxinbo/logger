@@ -1,17 +1,23 @@
-#ifndef _FILE_APPENDER_H
-#define _FILE_APPENDER_H
+// File: FileAppender.h
+// Author: Xinbo Gao gaoxinbo1984@gmail.com
+// Version: 1.0
+// Date: 2014-05-25
+// Copyright 2014, Xinbo Gao.  All rights reserved.
 
-#include "Appender.h"
+#ifndef _FILEAPPENDER_H_
+#define _FILEAPPENDER_H_
 namespace logger {
 
-class FileAppender : public Appender {
+class FileAppender {
   public:
     FileAppender();
-    virtual ~FileAppender();
-    virtual void append(const char *msg);
+    ~FileAppender();
+
+  private:
+    FileAppender(const FileAppender&);
+    void operator=(const FileAppender&);
 };
 
-}
-
-#endif
+}  // namespace logger
+#endif  // _FILEAPPENDER_H_
 
