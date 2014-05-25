@@ -1,5 +1,6 @@
 #include "Logger.h"
 #include "ConsoleAppender.h"
+#include "FileAppender.h"
 
 #include "time.h"
 #include <iostream>
@@ -7,7 +8,11 @@ using namespace std;
 using namespace logger;
 
 int main(){
-  ConsoleAppender * appender = new ConsoleAppender();
+  //ConsoleAppender * appender = new ConsoleAppender();
+  FileAppender * appender = new FileAppender();
+  appender->setFileName("test"); 
+  appender->setTimer(1800);
+
   Logger * logger = new Logger();
   logger->setAppender(appender);
   logger->log(kINFO,"hello world");

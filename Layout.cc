@@ -33,7 +33,7 @@ void Layout::append(const char * level, const char *msg){
   localtime_r(&now,&t);
   int n = strftime(buf,1124,"%Y-%m-%d %H:%M:%S ",&t);
   n += snprintf(buf+n,1124-n,"%-5s ",level);
-  snprintf(buf+n,1124-n,"%s",msg);
+  snprintf(buf+n,1124-n,"%s\n",msg);
   appender_->append(buf);
 
 }
@@ -50,7 +50,7 @@ void Layout::append(const char *file, int line, const char * level, const char *
   int n = strftime(buf,40,"%Y-%m-%d %H:%M:%S ",t);
   n += snprintf(buf+n,1124-n,"%-5s ",level);
   n += snprintf(buf+n,1124-n,"%s:%d ",file,line);
-  snprintf(buf+n, 1124-n,"%s", msg);
+  snprintf(buf+n, 1124-n,"%s\n", msg);
   appender_->append(buf);
 
   delete t;

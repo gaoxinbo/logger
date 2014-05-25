@@ -12,7 +12,7 @@ ConsoleAppender::~ConsoleAppender(){
 }
 
 void ConsoleAppender::append(const char * msg){
-  printf("%s\n", msg);
+  printf("%s", msg);
 }
 
 
