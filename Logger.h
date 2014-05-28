@@ -22,6 +22,7 @@ class Logger {
     void setAppender(Appender* appender);
     void setLevel(LEVEL level); 
     void setName(const char *name);
+    void setMaxLength(int length);
 
     void log(LEVEL level, const char * fmt, ...);
     void log(LEVEL level,const char * file, int line, const char * fmt, ...);
@@ -30,6 +31,7 @@ class Logger {
     LEVEL level_;
     Layout layout_;
     std::string name_;
+    int maxLength_;
 
   private:
     Logger(const Logger&);

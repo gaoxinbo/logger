@@ -12,6 +12,7 @@ namespace logger {
 Logger::Logger(){
   level_ = kINFO;
   name_ = "ROOT";
+  maxLength_ = 1024;
 }
 
 Logger::~Logger(){
@@ -33,6 +34,10 @@ void Logger::setName(const char *name) {
   name_ = name;
 } 
 
+void Logger::setMaxLength(int length) {
+  maxLength_ = length;
+}
+
 void Logger::log(LEVEL level, const char * fmt, ...){
   if(level>level_ )
     return;
@@ -40,8 +45,9 @@ void Logger::log(LEVEL level, const char * fmt, ...){
   va_list ap;
   va_start(ap,fmt);
   // in most case, 1024 is big enough
-  char buf[1024];
-  vsnprintf(buf,1024,fmt,ap);
+  char buf[maxLength_+1];
+  memset(buf,maxLength_,0);
+  vsnprintf(buf,maxLength_,fmt,ap);
   va_end(ap);
 
   layout_.append(name_.c_str(),level,buf);
@@ -55,9 +61,9 @@ void Logger::log(LEVEL level, const char * file, int line, const char *fmt, ...)
   va_list ap;
   va_start(ap,fmt);
   // in most case, 1024 is big enough
-  char buf[1024];
-  memset(buf,1024,0);
-  vsnprintf(buf,1024,fmt,ap);
+  char buf[maxLength_+1];
+  memset(buf,maxLength_,0);
+  vsnprintf(buf,maxLength_,fmt,ap);
   va_end(ap);
 
   layout_.append(file,line,name_.c_str(),level,buf);
