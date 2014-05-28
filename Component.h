@@ -51,6 +51,8 @@ class FileComponent : public Component {
     virtual ~FileComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
+      if(le.file_ == NULL)
+        return;
       if(oss.str().length()>0)
         oss<<" ";
       oss<<le.file_<<":"<<le.line_;

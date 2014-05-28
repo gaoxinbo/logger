@@ -68,7 +68,7 @@ void Layout::setAppender(Appender * appender){
 }
 
 void Layout::append(LEVEL level, const char *msg){
-  append("unknow",0,level,msg);
+  append(NULL,0,level,msg);
 }
 
 void Layout::append(const char *file, int line, LEVEL level, const char *msg){
