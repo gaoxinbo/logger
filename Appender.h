@@ -12,7 +12,7 @@ class Appender {
   public:
     Appender();
     virtual ~Appender() = 0;
-    virtual void append(const char *msg) = 0 ;
+    virtual void append(const char *msg) = 0;
 
   private:
     Appender(const Appender&);

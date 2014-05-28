@@ -37,8 +37,8 @@ class MsgComponent : public Component {
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
       if(oss.str().length()>0)
-        oss<<" ";
-      oss<<le.msg_;
+        oss << " ";
+      oss << le.msg_;
     }
 };
 
@@ -54,8 +54,8 @@ class FileComponent : public Component {
       if(le.file_ == NULL)
         return;
       if(oss.str().length()>0)
-        oss<<" ";
-      oss<<le.file_<<":"<<le.line_;
+        oss << " ";
+      oss << le.file_ << ":" << le.line_;
     }
 };
 
