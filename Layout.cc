@@ -33,6 +33,7 @@ void Layout::destroy(){
 void Layout::setPattern(const char * pattern){
   // destroy first
   destroy();
+
   // %t time
   // %l level
   // %f file position 
@@ -81,21 +82,6 @@ void Layout::append(const char *file, int line, LEVEL level, const char *msg){
   le.level_ = level;
   le.msg_ = msg;
   append(le);
-  /*
-  char buf[1124]; 
-  memset(buf,1124,0);
-  time_t now = time(NULL);
-  tm * t = new tm;
-  localtime_r(&now,t);
-  int n = strftime(buf,40,"%Y-%m-%d %H:%M:%S ",t);
-  n += snprintf(buf+n,1124-n,"%-5s ",level);
-  n += snprintf(buf+n,1124-n,"%s:%d ",file,line);
-  snprintf(buf+n, 1124-n,"%s\n", msg);
-  appender_->append(buf);
-
-  delete t;
-  t = NULL;
-  */
 }
 
 void Layout::append(const LogEvent &le){

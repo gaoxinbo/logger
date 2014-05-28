@@ -18,14 +18,18 @@ class Logger {
     Logger();
     ~Logger();
 
+    void setPattern(const char *pattern);
     void setAppender(Appender* appender);
     void setLevel(LEVEL level); 
+    void setName(const char *name);
 
     void log(LEVEL level, const char * fmt, ...);
     void log(LEVEL level,const char * file, int line, const char * fmt, ...);
+
   private:
     LEVEL level_;
     Layout layout_;
+    std::string name_;
 
   private:
     Logger(const Logger&);

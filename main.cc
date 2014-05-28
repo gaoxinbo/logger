@@ -21,6 +21,14 @@ int main(){
   logger->log(kWARN,__FILE__,__LINE__,"hello world");
   logger->log(kERROR,__FILE__,__LINE__,"hello world");
   logger->log(kFATAL,__FILE__,__LINE__,"hello world");
+  logger->setPattern("%t %l %m");
+  logger->log(kINFO,"hello world");
+  logger->log(kINFO,__FILE__,__LINE__,"hello world");
+  logger->log(kDEBUG,__FILE__,__LINE__,"hello world");
+  logger->log(kWARN,__FILE__,__LINE__,"hello world");
+  logger->log(kERROR,__FILE__,__LINE__,"hello world");
+  logger->log(kFATAL,__FILE__,__LINE__,"hello world");
+
   return 0;
 }
 

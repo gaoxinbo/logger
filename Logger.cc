@@ -24,6 +24,14 @@ void Logger::setLevel(LEVEL level){
   level_ = level;
 }
 
+void Logger::setPattern(const char *pattern) {
+  layout_.setPattern(pattern);
+}
+
+void Logger::setName(const char *name) {
+  name_ = name;
+} 
+
 void Logger::log(LEVEL level, const char * fmt, ...){
   if(level>level_ )
     return;

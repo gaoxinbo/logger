@@ -3,7 +3,7 @@ SHARED_OBJ=liblogger.so
 OBJECTS=Component.o LogEvent.o Appender.o Layout.o ConsoleAppender.o FileAppender.o Logger.o
 
 CC=g++
-OPTIMING=-O2
+OPTIMING=-O0
 CXX_FLAGS=-g -fPIC -Wall -Werror -Wno-unused-variable ${OPTIMING} 
 LD_FLAGS=-g
 
