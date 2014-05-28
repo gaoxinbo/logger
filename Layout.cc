@@ -38,6 +38,7 @@ void Layout::setPattern(const char * pattern){
   // %l level
   // %f file position 
   // %m message
+  // %n log name 
   int len = strlen(pattern);  
   for(int i=0; i<len; i++){
     if(pattern[i] == '%'){
@@ -56,6 +57,9 @@ void Layout::setPattern(const char * pattern){
           case 'm':
             component_.push_back(new MsgComponent()); 
             break;
+          case 'n':
+            component_.push_back(new LogNameComponent()); 
+            break;
         }
         i++;
       }
@@ -68,11 +72,11 @@ void Layout::setAppender(Appender * appender){
   appender_ = appender;
 }
 
-void Layout::append(LEVEL level, const char *msg){
-  append(NULL,0,level,msg);
+void Layout::append(const char * logname,LEVEL level, const char *msg){
+  append(NULL,0,logname,level,msg);
 }
 
-void Layout::append(const char *file, int line, LEVEL level, const char *msg){
+void Layout::append(const char *file, int line, const char * logname, LEVEL level, const char *msg){
   if(appender_ == NULL)
     return;
 
@@ -81,6 +85,7 @@ void Layout::append(const char *file, int line, LEVEL level, const char *msg){
   le.line_ = line;
   le.level_ = level;
   le.msg_ = msg;
+  le.logName_ = logname;
   append(le);
 }
 

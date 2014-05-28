@@ -22,8 +22,8 @@ class Layout {
 
     void setPattern(const char *pattern); 
     void setAppender(Appender * appender);
-    void append(LEVEL level, const char *msg);
-    void append(const char *file, int line,LEVEL level, const char *msg);
+    void append(const char * logname, LEVEL level, const char *msg);
+    void append(const char *file, int line, const char * logname, LEVEL level, const char *msg);
 
   private:
     Appender * appender_;

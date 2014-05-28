@@ -15,6 +15,7 @@ class LogEvent {
 
     const char * msg_;
     const char * file_;
+    const char * logName_;
     int level_;
     int line_;
 

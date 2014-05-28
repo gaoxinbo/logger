@@ -98,6 +98,19 @@ class TimeComponent : public Component {
 
 };
 
+class LogNameComponent : public Component {
+  public:
+    LogNameComponent() : Component() {}
+    virtual ~LogNameComponent() {}
+
+    virtual void append(const LogEvent & le, std::ostringstream &oss) {
+      if(oss.str().length()>0)
+        oss<<" ";
+      oss<<le.logName_;
+    }
+    
+};
+
 }  // namespace logger
 #endif  // _COMPONENT_H_
 

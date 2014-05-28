@@ -11,6 +11,7 @@ namespace logger {
 
 Logger::Logger(){
   level_ = kINFO;
+  name_ = "ROOT";
 }
 
 Logger::~Logger(){
@@ -43,7 +44,7 @@ void Logger::log(LEVEL level, const char * fmt, ...){
   vsnprintf(buf,1024,fmt,ap);
   va_end(ap);
 
-  layout_.append(level,buf);
+  layout_.append(name_.c_str(),level,buf);
 
 }
 
@@ -59,7 +60,7 @@ void Logger::log(LEVEL level, const char * file, int line, const char *fmt, ...)
   vsnprintf(buf,1024,fmt,ap);
   va_end(ap);
 
-  layout_.append(file,line,level,buf);
+  layout_.append(file,line,name_.c_str(),level,buf);
 
 }
 
