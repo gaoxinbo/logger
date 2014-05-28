@@ -4,7 +4,7 @@ OBJECTS=Component.o LogEvent.o Appender.o Layout.o ConsoleAppender.o FileAppende
 
 CC=g++
 OPTIMING=-O2
-CXX_FLAGS=-g -Wall -Werror -Wno-unused-variable ${OPTIMING} 
+CXX_FLAGS=-g -fPIC -Wall -Werror -Wno-unused-variable ${OPTIMING} 
 LD_FLAGS=-g
 
 all:liblogger.so ${bin}

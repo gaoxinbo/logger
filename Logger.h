@@ -7,27 +7,11 @@
 #ifndef _LOGGER_H_
 #define _LOGGER_H_
 
+#include "Level.h"
 #include "Appender.h"
 #include "Layout.h"
 
 namespace logger {
-
-enum LEVEL {
-  kFATAL = 0,
-  kERROR,
-  kWARN,
-  kINFO,
-  kDEBUG,
-  kLEVEL_LENGTH,
-};
-
-static const char * LevelMsg [kLEVEL_LENGTH] = {
-  "FATAL",
-  "ERROR",
-  "WARN",
-  "INFO",
-  "DEBUG",
-};
 
 class Logger {
   public:

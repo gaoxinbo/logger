@@ -10,7 +10,7 @@
 #include <sys/time.h>
 #include <sstream>
 #include "LogEvent.h"
-#include "Logger.h"
+#include "Level.h"
 
 namespace logger {
 
@@ -90,7 +90,7 @@ class TimeComponent : public Component {
       time_t now = time(NULL);
       tm  t;
       localtime_r(&now,&t);
-      int n = strftime(buf,30,"%Y-%m-%d %H:%M:%S ",&t);
+      int n = strftime(buf,30,"%Y-%m-%d %H:%M:%S",&t);
       oss<<buf;
     }
 

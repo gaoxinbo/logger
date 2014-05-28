@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string>
 
-#include "logger.h"
+#include "Logger.h"
 
 namespace logger {
 
@@ -35,7 +35,7 @@ void Logger::log(LEVEL level, const char * fmt, ...){
   vsnprintf(buf,1024,fmt,ap);
   va_end(ap);
 
-  layout_.append(LevelMsg[level],buf);
+  layout_.append(level,buf);
 
 }
 
@@ -51,7 +51,7 @@ void Logger::log(LEVEL level, const char * file, int line, const char *fmt, ...)
   vsnprintf(buf,1024,fmt,ap);
   va_end(ap);
 
-  layout_.append(file,line,LevelMsg[level],buf);
+  layout_.append(file,line,level,buf);
 
 }
 

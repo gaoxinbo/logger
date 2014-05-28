@@ -7,25 +7,34 @@
 #ifndef _LAYOUT_H_
 #define _LAYOUT_H_
 
+#include <vector>
 #include "Appender.h"
+#include "Component.h"
 
 namespace logger {
+
+class Component;
 
 class Layout {
   public:
     Layout();
     ~Layout();
 
+    void setPattern(const char *pattern); 
     void setAppender(Appender * appender);
-    void append(const char * level, const char *msg);
-    void append(const char *file, int line,const char * level, const char *msg);
+    void append(LEVEL level, const char *msg);
+    void append(const char *file, int line,LEVEL level, const char *msg);
 
   private:
     Appender * appender_;
+    std::vector<Component *> component_;
 
   private:
     Layout(const Layout&);
     void operator=(const Layout&);
+
+    void append(const LogEvent &le);
+    void destroy();
 };
 
 }  // namespace logger
