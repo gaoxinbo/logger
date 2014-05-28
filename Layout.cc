@@ -69,6 +69,8 @@ void Layout::setPattern(const char * pattern){
 }
 
 void Layout::setAppender(Appender * appender){
+  if(appender_ != NULL)
+    delete appender_;
   appender_ = appender;
 }
 
