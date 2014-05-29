@@ -7,6 +7,7 @@
 #ifndef _LOGGERFACTORY_H_
 #define _LOGGERFACTORY_H_
 
+#include <map>
 #include "Logger.h"
 
 namespace logger {
@@ -20,6 +21,8 @@ class LoggerFactory {
   private:
     LoggerFactory(const LoggerFactory&);
     void operator=(const LoggerFactory&);
+
+    static std::map<const char *, Logger *> logger_;
 };
 
 }  // namespace logger

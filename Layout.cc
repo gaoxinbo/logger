@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Layout.h"
+#include "ConsoleAppender.h"
 
 using namespace std;
 namespace logger {
@@ -79,8 +80,10 @@ void Layout::append(const char * logname,LEVEL level, const char *msg){
 }
 
 void Layout::append(const char *file, int line, const char * logname, LEVEL level, const char *msg){
-  if(appender_ == NULL)
-    return;
+  if(appender_ == NULL) {
+    // set default appender;
+    appender_ = new ConsoleAppender();
+  }
 
   LogEvent le;
   le.file_ = file;
