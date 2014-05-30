@@ -15,6 +15,12 @@ Logger::Logger(){
   maxLength_ = 1024;
 }
 
+Logger::Logger(const char *name){
+  level_ = kINFO;
+  name_ = name;
+  maxLength_ = 1024;
+}
+
 Logger::~Logger(){
 }
 

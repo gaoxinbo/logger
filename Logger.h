@@ -16,6 +16,7 @@ namespace logger {
 class Logger {
   public:
     Logger();
+    Logger(const char *name);
     ~Logger();
 
     void setPattern(const char *pattern);
