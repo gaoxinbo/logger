@@ -7,6 +7,7 @@
 #ifndef _COMPONENT_H_
 #define _COMPONENT_H_
 
+#include <pthread.h>
 #include <sys/time.h>
 #include <sstream>
 #include "LogEvent.h"
@@ -107,6 +108,32 @@ class LogNameComponent : public Component {
       if(oss.str().length()>0)
         oss<<" ";
       oss<<le.logName_;
+    }
+    
+};
+
+class PidComponent : public Component {
+  public:
+    PidComponent() : Component() {}
+    virtual ~PidComponent() {}
+
+    virtual void append(const LogEvent & le, std::ostringstream &oss) {
+      if(oss.str().length()>0)
+        oss<<" ";
+      oss<<getpid();
+    }
+    
+};
+
+class TidComponent : public Component {
+  public:
+    TidComponent() : Component() {}
+    virtual ~TidComponent() {}
+
+    virtual void append(const LogEvent & le, std::ostringstream &oss) {
+      if(oss.str().length()>0)
+        oss<<" ";
+      oss<<pthread_self();
     }
     
 };

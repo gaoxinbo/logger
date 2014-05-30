@@ -1,9 +1,9 @@
 bin=main
 SHARED_OBJ=liblogger.so
-OBJECTS=LoggerFactory.o Component.o LogEvent.o Appender.o Layout.o ConsoleAppender.o FileAppender.o Logger.o
+OBJECTS=LoggerFactory.o Component.o LogEvent.o Appender.o Layout.o StringAppender.o ConsoleAppender.o FileAppender.o Logger.o
 
 CC=g++
-OPTIMING=-O0
+OPTIMING=-O2
 CXX_FLAGS=-g -fPIC -Wall -Werror -Wno-unused-variable ${OPTIMING} 
 LD_FLAGS=-g
 

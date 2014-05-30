@@ -61,6 +61,12 @@ void Layout::setPattern(const char * pattern){
           case 'n':
             component_.push_back(new LogNameComponent()); 
             break;
+          case 'p':
+            component_.push_back(new PidComponent()); 
+            break;
+          case 'T':
+            component_.push_back(new TidComponent()); 
+            break;
         }
         i++;
       }
