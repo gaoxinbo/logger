@@ -15,9 +15,18 @@ LoggerFactory::~LoggerFactory() {
 
 Logger * LoggerFactory::getLogger(const char *name) {
   if(logger_.find(name) == logger_.end()){
-    logger_[name] = new Logger();
+    logger_[name] = new Logger(name);
   }
   return logger_[name];
+}
+
+void LoggerFactory::putLogger(const char *name, Logger *logger){
+  if(logger_.find(name) != logger_.end()) {
+    // delete old one
+    delete (*logger_.find(name)).second;
+    logger_.erase(name);
+  }
+  logger_[name] = logger;
 }
 
 }  // namespace logger

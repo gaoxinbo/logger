@@ -18,6 +18,7 @@ class LoggerFactory {
     ~LoggerFactory();
 
     static Logger* getLogger(const char *);
+    static void putLogger(const char *name , Logger * logger);
   private:
     LoggerFactory(const LoggerFactory&);
     void operator=(const LoggerFactory&);
