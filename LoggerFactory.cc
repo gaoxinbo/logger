@@ -29,5 +29,8 @@ void LoggerFactory::putLogger(const char *name, Logger *logger){
   logger_[name] = logger;
 }
 
+void LoggerFactory::init(const char *filename) {
+}
+
 }  // namespace logger
 

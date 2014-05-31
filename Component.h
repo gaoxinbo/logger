@@ -120,7 +120,7 @@ class PidComponent : public Component {
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
       if(oss.str().length()>0)
         oss<<" ";
-      oss<<getpid();
+      oss<<pthread_self();
     }
     
 };
