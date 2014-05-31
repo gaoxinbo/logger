@@ -9,6 +9,7 @@
 
 #include <map>
 #include "Logger.h"
+#include "Config.h"
 
 namespace logger {
 
@@ -24,7 +25,9 @@ class LoggerFactory {
     LoggerFactory(const LoggerFactory&);
     void operator=(const LoggerFactory&);
 
+    static void initLogger(const char *name);
     static std::map<const char *, Logger *> logger_;
+    static Config config_;
 };
 
 }  // namespace logger

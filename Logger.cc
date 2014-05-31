@@ -9,11 +9,13 @@
 
 namespace logger {
 
+/*
 Logger::Logger(){
   level_ = kINFO;
   name_ = "ROOT";
   maxLength_ = 1024;
 }
+*/
 
 Logger::Logger(const char *name){
   level_ = kINFO;

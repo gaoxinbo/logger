@@ -1,3 +1,4 @@
+#include "LoggerFactory.h"
 #include "Logger.h"
 #include "ConsoleAppender.h"
 #include "FileAppender.h"
@@ -13,7 +14,7 @@ int main(){
   appender->setFileName("test"); 
   appender->setTimer(1800);
 
-  Logger * logger = new Logger();
+  Logger * logger = new Logger("ROOT");
   logger->setAppender(appender);
   logger->log(kINFO,"hello world");
   logger->log(kINFO,__FILE__,__LINE__,"hello world");
@@ -29,6 +30,8 @@ int main(){
   logger->log(kERROR,__FILE__,__LINE__,"hello world");
   logger->log(kFATAL,__FILE__,__LINE__,"hello world");
 
+  Logger * self = LoggerFactory::getLogger("self");
+  self->log(kINFO,"hello world");
   return 0;
 }
 
