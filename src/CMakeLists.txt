@@ -1,5 +1,3 @@
-project(logger)
-
 set(LIB_SRC Appender.cc ConsoleAppender.cc FileAppender.cc Logger.cc LoggerFactory.cc
             Layout.cc Component.cc Config.cc LogEvent.cc) 
 
