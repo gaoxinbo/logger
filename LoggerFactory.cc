@@ -96,6 +96,14 @@ void LoggerFactory::initLogger(const char *name) {
     logger->setPattern(item.c_str());
   }
 
+  // set max length
+  string length_item = name;
+  length_item += ".maxlength";
+  if(m.find(length_item) != m.end()) {
+    string len = m[length_item];
+    logger->setMaxLength(atoi(len.c_str()));
+  }
+
   // set level, hard code for now
   string level_item = name;
   level_item += ".level";
