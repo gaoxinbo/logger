@@ -21,8 +21,8 @@ class Config {
     void parse(const std::string &s);
     std::map<std::string,std::string> getGroup(const char *group);
 
-    std::string trim(const std::string &s);
-    bool split(const std::string &s, std::string &key, std::string &value);
+    //std::string trim(const std::string &s);
+    //bool split(const std::string &s, std::string &key, std::string &value);
     void group(const std::string &key, const std::string &value);
   private:
     std::map<std::string,std::map<std::string,std::string> > group_;

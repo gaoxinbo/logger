@@ -2,6 +2,7 @@
 // Author: Xinbo Gao gaoxinbo1984@gmail.com
 
 #include "LoggerFactory.h"
+#include "StringUtil.h"
 #include "ConsoleAppender.h"
 #include "FileAppender.h"
 
@@ -39,7 +40,7 @@ void LoggerFactory::init(const char *filename) {
   map<string,string> m = config_.getGroup("logger");
   if(m.find("rootCategory") != m.end()) {
     string names = m["rootCategory"];
-    names = config_.trim(names);
+    names = StringUtil::trim(names);
     string::size_type pos,pre;
     pos = pre = 0;
     while( (pos = names.find_first_of(",",pre)) != string::npos) { 

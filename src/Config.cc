@@ -2,6 +2,7 @@
 // Author: Xinbo Gao gaoxinbo1984@gmail.com
 
 #include "Config.h"
+#include "StringUtil.h"
 #include <fstream>
 
 using namespace std;
@@ -15,9 +16,9 @@ Config::~Config() {
 }
 
 void Config::parse(const string &s) {
-    string line = trim(s);
+    string line = StringUtil::trim(s);
     string key,value;
-    if(line.length()==0 || line[0] == '#' || split(line,key,value)==false )
+    if(line.length()==0 || line[0] == '#' || StringUtil::split(line,key,value)==false )
       return;
     group(key,value);
 }
@@ -49,6 +50,8 @@ map<string,string> Config::getGroup(const char * group) {
   return group_[group];
 }
 
+
+/*
 string Config::trim(const string &s){
   string::size_type first,last; 
   first = last = 0;
@@ -71,5 +74,6 @@ bool Config::split(const string &s, string &key, string &value){
   return true;
 }
 
+*/
 }  // namespace logger
 
