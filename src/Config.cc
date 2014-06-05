@@ -15,7 +15,7 @@ Config::Config() {
 Config::~Config() {
 }
 
-void Config::parse(const string &s) {
+void Config::parseLine(const string &s) {
     string line = StringUtil::trim(s);
     string key,value;
     if(line.length()==0 || line[0] == '#' || StringUtil::split(line,key,value)==false )
@@ -30,7 +30,7 @@ void Config::parse(const char * filename) {
 
   string line;
   while(getline(ifile,line)) {
-    parse(line);
+    parseLine(line);
   }
 }
 

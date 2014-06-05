@@ -18,7 +18,7 @@ class Config {
     ~Config();
 
     void parse(const char *filename);
-    void parse(const std::string &s);
+    void parseLine(const std::string &s);
     std::map<std::string,std::string> getGroup(const char *group);
 
     //std::string trim(const std::string &s);

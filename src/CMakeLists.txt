@@ -16,7 +16,7 @@ include_directories(${PROJECT_SOURCE_DIR}/gtest/include)
 add_executable(test_stringutil ${PROJECT_SOURCE_DIR}/gtest/src/gtest_main.cc StringUtil_Test.cc)
 target_link_libraries(test_stringutil logger gtest)
 
-add_executable(test_config ${PROJECT_SOURCE_DIR}/gtest/src/gtest_main.cc Config_Test.cc)
+add_executable(test_config ${PROJECT_SOURCE_DIR}/gtest/src/gtest_main.cc ${PROJECT_SOURCE_DIR}/src/Config_Test.cc)
 target_link_libraries(test_config logger gtest)
 
 add_test(StringUtil test_stringutil)
