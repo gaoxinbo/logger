@@ -24,6 +24,13 @@ TEST(Config,parseLine) {
 
   EXPECT_TRUE(group.count("root")==1);
   EXPECT_TRUE(group["root"]=="value");
+
+
+  config.parseLine("logger.root.appender=FileAppender");
+  group = config.getGroup("logger");
+  EXPECT_TRUE(group.count("root.appender")!=0);
+  EXPECT_TRUE(group["root.appender"]=="FileAppender");
+
 }
 
 TEST(Config,parsefile) {
