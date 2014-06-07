@@ -19,6 +19,7 @@ FileAppender::FileAppender() : Appender(){
   second_ = 3600*24;  
   time_t now = time(NULL);
   nextTime_ = now - now % second_;
+  setName("FileAppender");
 }
 
 FileAppender::~FileAppender() {

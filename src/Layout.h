@@ -8,6 +8,7 @@
 #define _LAYOUT_H_
 
 #include <vector>
+#include <string>
 #include "Appender.h"
 #include "Component.h"
 
@@ -20,6 +21,7 @@ class Layout {
     Layout();
     ~Layout();
 
+    std::string getPattern();
     void setPattern(const char *pattern); 
     void setAppender(Appender * appender);
     void append(const char * logname, LEVEL level, const char *msg);
@@ -28,6 +30,7 @@ class Layout {
   private:
     Appender * appender_;
     std::vector<Component *> component_;
+    std::string pattern_;
 
   private:
     Layout(const Layout&);

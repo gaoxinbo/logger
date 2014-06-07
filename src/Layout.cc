@@ -24,6 +24,7 @@ Layout::~Layout(){
 }
 
 void Layout::destroy(){
+  pattern_ = "";
   vector<Component *>::iterator it = component_.begin();
   for(; it!=component_.end(); ++it){
     delete *it;
@@ -31,10 +32,17 @@ void Layout::destroy(){
   component_.clear();
 
 }
+
+
+string Layout::getPattern(){
+  return pattern_;
+}
+
 void Layout::setPattern(const char * pattern){
   // destroy first
   destroy();
 
+  pattern_ = pattern;
   // %t time
   // %l level
   // %f file position 

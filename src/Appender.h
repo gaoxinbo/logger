@@ -6,6 +6,9 @@
 
 #ifndef _APPENDER_H_
 #define _APPENDER_H_
+
+#include <string>
+
 namespace logger {
 
 class Appender {
@@ -13,8 +16,11 @@ class Appender {
     Appender();
     virtual ~Appender() = 0;
     virtual void append(const char *msg) = 0;
+    std::string getName();
+    void setName(std::string name);
 
   private:
+    std::string name_;
     Appender(const Appender&);
     void operator=(const Appender&);
 };

@@ -6,6 +6,7 @@
 namespace logger {
 
 ConsoleAppender::ConsoleAppender():Appender(){
+  setName("ConsoleAppender");
 }
 
 ConsoleAppender::~ConsoleAppender(){
