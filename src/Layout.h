@@ -26,6 +26,7 @@ class Layout {
     void setAppender(Appender * appender);
     void append(const char * logname, LEVEL level, const char *msg);
     void append(const char *file, int line, const char * logname, LEVEL level, const char *msg);
+    const std::vector<Component *> & getComponent() const;
 
   private:
     Appender * appender_;

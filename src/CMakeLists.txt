@@ -19,5 +19,9 @@ target_link_libraries(test_stringutil logger gtest)
 add_executable(test_config ${PROJECT_SOURCE_DIR}/gtest/src/gtest_main.cc ${PROJECT_SOURCE_DIR}/src/Config_Test.cc)
 target_link_libraries(test_config logger gtest)
 
+add_executable(test_layout ${PROJECT_SOURCE_DIR}/gtest/src/gtest_main.cc ${PROJECT_SOURCE_DIR}/src/Layout_Test.cc)
+target_link_libraries(test_layout logger gtest)
+
 add_test(StringUtil test_stringutil)
 add_test(Config test_config)
+add_test(Layout test_layout)

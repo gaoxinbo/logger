@@ -118,5 +118,9 @@ void Layout::append(const LogEvent &le){
   appender_->append(oss.str().c_str());
 }
 
+const vector<Component *> & Layout::getComponent() const {
+  return component_;
+}
+
 }  // namespace logger
 

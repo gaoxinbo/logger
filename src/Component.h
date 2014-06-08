@@ -10,6 +10,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <sstream>
+#include <string>
 #include "LogEvent.h"
 #include "Level.h"
 
@@ -21,10 +22,16 @@ class Component {
     virtual ~Component() = 0;
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) = 0;
+    std::string getName() {
+      return name_;
+    }
 
   private:
     Component(const Component&);
     void operator=(const Component&);
+
+  protected:
+    std::string name_;
 };
 
 
@@ -33,7 +40,9 @@ class Component {
  */
 class MsgComponent : public Component {
   public:
-    MsgComponent() : Component() {}
+    MsgComponent() : Component() {
+      name_ = "MsgComponent";
+    }
     virtual ~MsgComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -48,7 +57,9 @@ class MsgComponent : public Component {
  */
 class FileComponent : public Component {
   public:
-    FileComponent() : Component() {}
+    FileComponent() : Component() {
+      name_ = "FileComponent";
+    }
     virtual ~FileComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -65,7 +76,9 @@ class FileComponent : public Component {
  */
 class LevelComponent : public Component {
   public:
-    LevelComponent() : Component() {}
+    LevelComponent() : Component() {
+      name_ = "LevelComponent";
+    }
     virtual ~LevelComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -82,7 +95,9 @@ class LevelComponent : public Component {
  */
 class TimeComponent : public Component {
   public:
-    TimeComponent() : Component() {}
+    TimeComponent() : Component() {
+      name_ = "TimeComponent";
+    }
     virtual ~TimeComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -101,7 +116,9 @@ class TimeComponent : public Component {
 
 class LogNameComponent : public Component {
   public:
-    LogNameComponent() : Component() {}
+    LogNameComponent() : Component() {
+      name_ = "LogNameComponent";
+    }
     virtual ~LogNameComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -114,7 +131,9 @@ class LogNameComponent : public Component {
 
 class PidComponent : public Component {
   public:
-    PidComponent() : Component() {}
+    PidComponent() : Component() {
+      name_ = "PidComponent";
+    }
     virtual ~PidComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
@@ -127,7 +146,9 @@ class PidComponent : public Component {
 
 class TidComponent : public Component {
   public:
-    TidComponent() : Component() {}
+    TidComponent() : Component() {
+      name_ = "TidComponent";
+    }
     virtual ~TidComponent() {}
 
     virtual void append(const LogEvent & le, std::ostringstream &oss) {
