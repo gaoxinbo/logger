@@ -52,7 +52,6 @@ void Logger::log(LEVEL level, const char * fmt, ...){
 
   va_list ap;
   va_start(ap,fmt);
-  // in most case, 1024 is big enough
   char buf[maxLength_+1];
   memset(buf,maxLength_,0);
   vsnprintf(buf,maxLength_,fmt,ap);
@@ -68,7 +67,6 @@ void Logger::log(LEVEL level, const char * file, int line, const char *fmt, ...)
 
   va_list ap;
   va_start(ap,fmt);
-  // in most case, 1024 is big enough
   char buf[maxLength_+1];
   memset(buf,maxLength_,0);
   vsnprintf(buf,maxLength_,fmt,ap);
