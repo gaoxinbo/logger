@@ -35,4 +35,5 @@ TEST(Config,parseLine) {
 
 TEST(Config,parsefile) {
   Config config;
+  config.parse("log.conf");
 }
